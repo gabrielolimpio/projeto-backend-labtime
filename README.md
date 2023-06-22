@@ -1,4 +1,4 @@
-# Projeto Java Spring Boot
+# Projeto API Rest Java Spring Boot
 
 * Objetivo: 
    - Modelar a tabela fornecida pela equipe em uma base de dados Postgres e devolver um JSON com as informações.
@@ -11,14 +11,22 @@
     - Git (Github Desktop, GitKraken)
     - Banco de dados Postgres 
 
-Inicialmente, precisa realizar o seguinte comando para popular o banco de dados
+Inicialmente, é necessário realizar o seguinte comando para popular o banco de dados
 
-http://localhost:8080/usuarios/registro-csv
+Método POST: http://localhost:8080/usuarios/registro-csv
 
 Listagem de todos os usuários
 
-http://localhost:8080/usuarios
+Método GET: http://localhost:8080/usuarios
 
 Listagem do usuário pelo id 
 
-http://localhost:8080/usuarios/{id}
+Método GET: http://localhost:8080/usuarios/{id}
+
+Para atualizar um usuário pelo id
+
+Método PUT: http://localhost:8080/usuarios/{id}
+
+Para deletar um usuário pelo id
+
+Método DELETE: http://localhost:8080/usuarios/{id}
