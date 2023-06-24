@@ -46,9 +46,29 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-    public Optional<Usuario> findByNomeCompleto(String nomeCompleto) {
-        return usuarioRepository.findByNomeCompleto(nomeCompleto);
-    }
+//    public Optional<Usuario> findByNomeCompleto(String nomeCompleto) {
+//        return usuarioRepository.findByNomeCompleto(nomeCompleto);
+//    }
+
+//    public List<Usuario> findByNomeCompletoContainingOrNomeSocialContainingOrEmailContaining(String nomeCompleto,
+//                                                                                             String nomeSocial,
+//                                                                                             String email){
+//        return usuarioRepository.findByNomeCompletoContainingOrNomeSocialContainingOrEmailContaining(
+//                nomeCompleto,
+//                nomeSocial,
+//                email);
+//    }
+
+    public List<Usuario> findByNomeCompletoContainingIgnoreCaseOrNomeSocialContainingIgnoreCaseOrEmailContainingIgnoreCase(String nomeCompleto,
+                                                                                                                           String nomeSocial,
+                                                                                                                           String email){
+        return usuarioRepository.findByNomeCompletoContainingIgnoreCaseOrNomeSocialContainingIgnoreCaseOrEmailContainingIgnoreCase(
+                nomeCompleto,
+                nomeSocial,
+                email);
+
+        }
+
 
     @Transactional
     public void delete(Usuario usuario) {
