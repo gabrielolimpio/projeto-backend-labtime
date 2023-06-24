@@ -23,6 +23,10 @@ Listagem do usuário pelo id
 
 Método GET: http://localhost:8080/usuarios/{id}
 
+Podemos também listar pelos filtros: nomeCompleto, nomeSocial ou email através do 
+
+Método GET: https://dev.labtime.ufg.br/selecao-2023/usuarios?filtro={filtro}
+
 Para atualizar um usuário pelo id
 
 Método PUT: http://localhost:8080/usuarios/{id}
