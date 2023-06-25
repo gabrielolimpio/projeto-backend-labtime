@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +47,6 @@ public class UsuarioService {
 
         }
 
-
     @Transactional
     public void delete(Usuario usuario) {
         usuarioRepository.delete(usuario);
@@ -57,7 +55,6 @@ public class UsuarioService {
     public void update(Usuario usuario) {
 
     }
-
 
     public void readCSVAndSaveToDatabase() throws IOException, CsvException{
         try (CSVReader csvreader = new CSVReader(new FileReader("usuarios.csv"))) {
