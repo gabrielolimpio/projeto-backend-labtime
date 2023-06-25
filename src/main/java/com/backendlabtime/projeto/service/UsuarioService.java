@@ -6,23 +6,15 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.opencsv.CSVReader;
-import java.nio.file.Files;
-import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static java.lang.Integer.parseInt;
 
 @Service
 public class UsuarioService {
@@ -46,19 +38,6 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
-//    public Optional<Usuario> findByNomeCompleto(String nomeCompleto) {
-//        return usuarioRepository.findByNomeCompleto(nomeCompleto);
-//    }
-
-//    public List<Usuario> findByNomeCompletoContainingOrNomeSocialContainingOrEmailContaining(String nomeCompleto,
-//                                                                                             String nomeSocial,
-//                                                                                             String email){
-//        return usuarioRepository.findByNomeCompletoContainingOrNomeSocialContainingOrEmailContaining(
-//                nomeCompleto,
-//                nomeSocial,
-//                email);
-//    }
-
     public List<Usuario> findByNomeCompletoContainingIgnoreCaseOrNomeSocialContainingIgnoreCaseOrEmailContainingIgnoreCase(String nomeCompleto,
                                                                                                                            String nomeSocial,
                                                                                                                            String email){
@@ -79,29 +58,8 @@ public class UsuarioService {
 
     }
 
-    /*
-
-    micael
-
-    public static List<Usuario> parse(){
-        final String CSV_PATH = System.getProperty("user.dir") + "\\src\\main\\assets\\usuarios.csv";
-        try {
-            CSVReader reader = new CSVReaderBuilder(new FileReader(CSV_PATH)).
-                    withSkipLines(1). // Skiping firstline as it is header
-                            build();
-
-
-
-    // gepeto */
-    //public void readCSVAndSaveToDatabase(String csvFilePath){
-                //try (CSVReader reader = new CSVReader(new FileReader(csvFilePath))) {
-
-    // no postman http://localhost:8080/csvdata?file=src/main/resources/usuarios.csv
-
-
 
     public void readCSVAndSaveToDatabase() throws IOException, CsvException{
-        //Reader csvFilePath = Files.newBufferedReader(Paths.get("usuarios.csv"));
         try (CSVReader csvreader = new CSVReader(new FileReader("usuarios.csv"))) {
             List<String[]> lines = csvreader.readAll();
             List<Usuario> usuarioList = new ArrayList<>();
